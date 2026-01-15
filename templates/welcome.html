@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication System API</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #60a5fa; }
+        .version { color: #94a3b8; margin-bottom: 40px; }
+        .section { background: #1e293b; border-radius: 8px; padding: 30px; margin-bottom: 20px; }
+        h2 { color: #60a5fa; margin-bottom: 20px; font-size: 1.5rem; }
+        .endpoint { background: #334155; padding: 15px; border-radius: 6px; margin-bottom: 10px; font-family: 'Courier New', monospace; }
+        .method { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-right: 10px; }
+        .get { background: #3b82f6; }
+        .post { background: #10b981; }
+        .patch { background: #f59e0b; }
+        .delete { background: #ef4444; }
+        .path { color: #cbd5e1; }
+        .desc { color: #94a3b8; font-size: 0.9rem; margin-top: 5px; }
+        .tech { display: inline-block; background: #334155; padding: 6px 12px; border-radius: 4px; margin: 5px 5px 5px 0; font-size: 0.9rem; }
+        .test-btn { display: inline-block; background: #10b981; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 10px; }
+        .test-btn:hover { background: #059669; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Authentication System API</h1>
+        <p class="version">v1.0</p>
+
+        <div class="section">
+            <a href="/test/" class="test-btn">Тестировать API →</a>
+        </div>
+
+        <div class="section">
+            <h2>Технологии</h2>
+            <span class="tech">Django 4.2</span>
+            <span class="tech">DRF</span>
+            <span class="tech">PostgreSQL</span>
+            <span class="tech">JWT</span>
+            <span class="tech">bcrypt</span>
+            <span class="tech">RBAC</span>
+        </div>
+
+        <div class="section">
+            <h2>Auth</h2>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/api/auth/register/</span>
+                <div class="desc">Регистрация</div>
+            </div>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/api/auth/login/</span>
+                <div class="desc">Вход (возвращает access + refresh токены)</div>
+            </div>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/api/auth/refresh/</span>
+                <div class="desc">Обновление access токена</div>
+            </div>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/api/auth/logout/</span>
+                <div class="desc">Выход</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Users</h2>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/api/users/me/</span>
+                <div class="desc">Получить профиль</div>
+            </div>
+            <div class="endpoint">
+                <span class="method patch">PATCH</span>
+                <span class="path">/api/users/me/</span>
+                <div class="desc">Обновить профиль</div>
+            </div>
+            <div class="endpoint">
+                <span class="method delete">DELETE</span>
+                <span class="path">/api/users/me/</span>
+                <div class="desc">Удалить (soft delete)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Products</h2>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/api/products/</span>
+                <div class="desc">Список</div>
+            </div>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/api/products/</span>
+                <div class="desc">Создать</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Orders</h2>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/api/orders/</span>
+                <div class="desc">Список</div>
+            </div>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/api/orders/</span>
+                <div class="desc">Создать</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Admin (только для admin)</h2>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/api/admin/roles/</span>
+                <div class="desc">Управление ролями</div>
+            </div>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/api/admin/business-elements/</span>
+                <div class="desc">Управление бизнес-элементами</div>
+            </div>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/api/admin/access-rules/</span>
+                <div class="desc">Управление правилами доступа</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
